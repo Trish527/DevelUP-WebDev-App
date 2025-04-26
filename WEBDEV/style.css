@@ -35,11 +35,11 @@ section {
 }
 
 .entrance-wrapper {
-    width: 30vw;
-    height: 65vh;
+    width: 29vw;
+    height: 70vh;
     max-width: 550px;
     max-height: 650px;
-    margin-top: 10vh;
+    margin-top: 13vh;
     border: 10px solid black;
     position: relative;
     perspective: 1000px;
@@ -121,6 +121,7 @@ section {
     height: 40vh;
     width: 40vw;
     overflow: hidden;
+    z-index: 3;
 }
 
 .barrier1 { left: 0; }
@@ -128,7 +129,7 @@ section {
 
 /* PORTRAIT ROOM */
 .portrait{
-    
+    display: none;
 }
 
 .portrait-container {
@@ -136,7 +137,7 @@ section {
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 100%;
+    height: 100%;   
 }
 
 .portrait-content {
@@ -186,81 +187,81 @@ section {
 }
 
 .puzzle1 {
-    width: 8vw;
-    height: 8vw;
-    right: 18%;
-    top: 30%;
+    width: 6vw;
+    height: 6vw;
+    right: 15%;
+    top: 33%;
     z-index: 1;
 }
 
 .portrait-picture1, .portrait-picture2 {
     width: 20vw;
-    height: 50vh;
-    top: 20%;
+    height: 55vh;
+    top: 15%;
     z-index: 2;
 }
 
-.portrait-picture1 { right: 13%; }
-.portrait-picture2 { left: 13%; }
+.portrait-picture1 { right: 8%; }
+.portrait-picture2 { left: 8%; }
 
 .portrait-picture3, .portrait-picture4 {
     width: 15.5vw;
-    height: 43vh;
-    top: 23.5%;
+    height: 47vh;
+    top: 19%;
     z-index: 3;
 }
 
-.portrait-picture3 { right: 15.2%; }
-.portrait-picture4 { left: 15.2%; }
+.portrait-picture3 { right: 10.3%; }
+.portrait-picture4 { left: 10.3%; }
 
 .portrait-window1 {
-    left: 35.5%;
-    top: 18%;
+    left: 35%;
+    top: 14%;
     width:30vw;
-    height: 52vh;
+    height: 57vh;
     z-index: 4;
 }
 
 .portrait-barrier1, .portrait-barrier2 {
-    top: 42%;
+    top: 45%;
     width: 30vw;
     height: 38vh;
     z-index: 4;
 }
 
-.portrait-barrier1 { right: 8%; }
-.portrait-barrier2 { left: 8%; }
+.portrait-barrier1 { right: 3%; }
+.portrait-barrier2 { left: 3%; }
 
 .portrait-plant1, .portrait-plant2 {
-    top: 51%;
+    top: 52%;
     width: 15vw;
-    height: 30vh;
+    height: 33vh;
     z-index: 4;
 }
 
 .portrait-plant3, .portrait-plant4 {
-    top: 57%;
+    top: 53%;
     width: 20vw;
-    height: 38vh;
+    height: 42vh;
     z-index: 8;
 }
 
 .portrait-plant5, .portrait-plant6 {
-    top: 57%;
+    top: 53%;
     width: 20vw;
-    height: 38vh;
+    height: 42vh;
     z-index: 8;
 }
 
-.portrait-plant1 { right: 86%;}
-.portrait-plant2 { left: 86%;}
-.portrait-plant3 { right: 23%;}
-.portrait-plant4 { left: 23%;}
-.portrait-plant5 { right: 86%;}
-.portrait-plant6 { left: 86%;}
+.portrait-plant1 { right: 28%;}
+.portrait-plant2 { left: 28%;}
+.portrait-plant3 { right: 58%;}
+.portrait-plant4 { left: 58%;}
+.portrait-plant5 { right: 91%;}
+.portrait-plant6 { left: 91%;}
 
 .portrait-wall1, .portrait-wall2{
-    top: 7%;
+    top: 8%;
     width: 40vw;
     height: 85vh;
     z-index: 5;
@@ -272,22 +273,22 @@ section {
 .portrait-picture5, .portrait-picture6{
     width: 25vw;
     height: 50vh;
-    top: 23%;
+    top: 25%;
     z-index: 6;
 }
 
-.portrait-picture5 { right: 5%;}
-.portrait-picture6 { left: 5%;}
+.portrait-picture5 { right: 4%;}
+.portrait-picture6 { left: 4%;}
 
 .portrait-picture7, .portrait-picture8{
     width: 13vw;
-    height: 36vh;
+    height: 40vh;
     top: 30%;
     z-index: 7;
 }
 
-.portrait-picture7 { right: 11%;}
-.portrait-picture8 { left: 11%;}
+.portrait-picture7 { right: 10%;}
+.portrait-picture8 { left: 10%;}
 
 .portrait-light1, .portrait-light2{
     width: 20vw;
@@ -296,8 +297,8 @@ section {
     z-index: 8;
 }
 
-.portrait-light1 { right: 7.5%;}
-.portrait-light2 { left: 7.5%;}
+.portrait-light1 { right: 6.5%;}
+.portrait-light2 { left: 6.5%;}
 
 @media (max-width: 768px) {
     .entrance-wrapper {
@@ -323,3 +324,183 @@ section {
         height: 15vh;
     }
 }
+
+/* THEATER ROOM */
+.theater{
+    
+}
+
+.theater-container {
+    background-image: url("TheaterBG.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.theater-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.theater-layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.theater-picture1, .theater-picture2,
+.theater-picture3, .theater-picture4,
+.theater-picture5, .theater-picture6,
+.theater-picture7, .theater-picture8,
+.theater-picture9, .theater-picture10,
+.theater-picture11, .theater-picture12,
+.theater-picture13, .theater-picture14,
+.theater-picture15, .theater-picture16,
+.theater-picture17, .theater-picture18,
+.theater-picture19, .theater-picture20,
+.theater-picture21, .puzzle2, .theater-chair,
+.theater-clothes1, .theater-clothes2,
+.theater-clothes3, .theater-clothes4,
+.theater-clothes5, .theater-clothes6,
+.theater-clothes7, .theater-clothes8,
+.puzzle3, .theater-backcurtain
+{
+    object-fit: cover;
+    position: absolute;
+}
+
+.theater-picture1, .theater-picture2{
+    width: 15vw;
+    height: 35vh;
+    top: 12%;
+    z-index: 1; 
+}
+
+.theater-picture1 { right: 25%;}
+.theater-picture2 { left: 25%;}
+
+.theater-backcurtain {
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    bottom: 24%;
+  }
+  
+  .theater-picture3 {
+    width: 100vw;
+    height: 80vh;
+    top: 0%;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .puzzle3 {
+    width: 6vw;
+    height: 6vw;
+    z-index: 3;
+    position: absolute; 
+    top: 0%;
+    left: 48%;
+  }
+  
+.theater-picture4, 
+.theater-picture5, 
+.theater-picture6, 
+.theater-picture7,
+.theater-picture8{
+    width: 25vw;
+    height: 20vh;
+    bottom: 81%;
+    z-index: 4;
+}
+
+.theater-picture4 { left: 38%;}
+.theater-picture5 { left: 18.2%;}
+.theater-picture6 { right: 17.2%;}
+.theater-picture7 { left: 77.2%;}
+.theater-picture8 { right: 76.4%;}
+
+.theater-picture9{
+    width: 27vw;
+    height: 88.5vh;
+    top: 0%;
+    z-index: 5;
+    right: 77.15%; 
+}
+
+.theater-picture10{
+    width: 27vw;
+    height: 88.5vh;
+    top: 0%;
+    z-index: 5;
+    left: 77%; 
+}
+
+.theater-picture11, .theater-picture12,
+.theater-picture13, .theater-picture14,
+.theater-picture15{
+    width: 20vw;
+    height: 32vh;
+    top: 72%;
+    z-index: 8;
+}
+
+.theater-picture11 {left: 40%;}
+.theater-picture12 {left: 20%;}
+.theater-picture13 {left: 0%;}
+.theater-picture14 {right: 0%;}
+.theater-picture15 {right: 20%;}
+
+.theater-picture16, .theater-picture17,
+.theater-picture18, .theater-picture19,
+.theater-picture20, .theater-picture21{
+    width: 20vw;
+    height: 32vh;
+    top: 65%;
+    z-index: 6;
+}
+
+.puzzle2{
+    width: 6vw;
+    height: 6vw;    
+    z-index: 7;
+    top: 65%;
+}
+
+.theater-picture16 {left: 30%;}
+.theater-picture17 {left: 10%;}
+.theater-picture18 {right: 30%;}
+.theater-picture19 {right: 10%;}
+.theater-picture20 {left: 90%;}
+
+.theater-chair{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    top: 65%;
+    right: 110%
+}
+
+.theater-clothes1, .theater-clothes2,
+.theater-clothes3, .theater-clothes4,
+.theater-clothes5, .theater-clothes6,
+.theater-clothes7, .theater-clothes8
+{
+    width: 13vw;
+    height: 45vh;
+    top: 23%;
+    z-index: 3; 
+}
+
+.theater-clothes4 { left: 8%; }
+.theater-clothes3 { left: 18%; }
+.theater-clothes2 { left: 28%; }
+.theater-clothes1 { left: 38%; }
+.theater-clothes5 { left: 48%; }
+.theater-clothes6 { left: 58%; }
+.theater-clothes7 { left: 68%; }
+.theater-clothes8 { left: 78%; }
+
