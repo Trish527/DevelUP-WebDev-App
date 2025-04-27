@@ -146,41 +146,26 @@ section {
     position: relative;
 }
 
-.portrait-layer1, 
-.portrait-layer2, 
-.portrait-layer3, 
-.portrait-layer4,
-.portrait-layer5,
-.portrait-layer6,
-.portrait-layer7,
-.portrait-layer8,
+.portrait-layer1, .portrait-layer2, 
+.portrait-layer3, .portrait-layer4,
+.portrait-layer5, .portrait-layer6,
+.portrait-layer7, .portrait-layer8,
 .portrait-layer9{
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.puzzle1, 
-.portrait-picture1, 
-.portrait-picture2, 
-.portrait-picture3, 
-.portrait-picture4,
-.portrait-window1,
-.portrait-barrier1,
-.portrait-barrier2,
-.portrait-plant1,
-.portrait-plant2,
-.portrait-plant3,
-.portrait-plant4,
-.portrait-plant5,
-.portrait-plant6,
-.portrait-wall1,
-.portrait-wall2,
-.portrait-picture5, 
-.portrait-picture6,
-.portrait-picture7, 
-.portrait-picture8,
-.portrait-light1,
+.puzzle1, .portrait-picture1, .portrait-picture2, 
+.portrait-picture3, .portrait-picture4,
+.portrait-window1, .portrait-barrier1,
+.portrait-barrier2, .portrait-plant1,
+.portrait-plant2, .portrait-plant3,
+.portrait-plant4, .portrait-plant5,
+.portrait-plant6, .portrait-wall1,
+.portrait-wall2, .portrait-picture5, 
+.portrait-picture6, .portrait-picture7, 
+.portrait-picture8, .portrait-light1,
 .portrait-light2  {
     object-fit: cover;
     position: absolute;
@@ -325,9 +310,148 @@ section {
     }
 }
 
+/* SCULPTURE ROOM */
+.sculpture{
+    
+}
+
+.sculpture-container {
+    background-image: url("SculptureBG.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;   
+}
+
+.sculpture-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.sculpture-layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.sculpture-picture1, .sculpture-picture2,
+.sculpture-picture3, .sculpture-barrier,
+.sculpture-picture4, .sculpture-picture5,
+.sculpture-picture6, .sculpture-picture7,
+.sculpture-picture8, .sculpture-picture9,
+.sculpture-picture10, .sculpture-picture11,
+.sculpture-picture12, .sculpture-picture13,
+.puzzle4
+{
+    object-fit: cover;
+    position: absolute;
+}
+
+.sculpture-picture1{
+    width: 18vw;
+    height: 50vh;
+    top: 26%;
+    z-index: 1;
+    left: 40.8%;
+}
+
+.sculpture-picture2{
+    width: 21vw;
+    height: 73vh;
+    top: 10%;
+    z-index: 2;
+    left: 39.2%;
+}
+
+.sculpture-picture3{
+    width: 10vw;
+    height: 68vh;
+    top: 16%;
+    z-index: 3;
+    left: 45%;
+}
+
+.sculpture-barrier{
+    width: 27vw;
+    height: 48vh;
+    top: 40%;
+    z-index: 4;
+    left: 36.2%;
+}
+
+.sculpture-picture4{
+    width: 20vw;
+    height: 40vh;
+    top: 15%;
+    z-index: 4;
+    left: 13%;
+}
+
+.sculpture-picture5{
+    width: 35vw;
+    height: 55vh;
+    top: 10%;
+    z-index: 4;
+    right: 3%;
+}
+
+.sculpture-picture6, .sculpture-picture7,
+.sculpture-picture8, .sculpture-picture9{
+    width: 12vw;
+    height: 35vh;
+    z-index: 5;
+}
+
+.sculpture-picture6 {left: 2%; top: 55%;}
+.sculpture-picture7 {right: 2%; top: 55%;}
+.sculpture-picture8 {left: 22%; top: 70%;}
+.sculpture-picture9 {right: 22%; top: 70%;}
+
+.sculpture-picture10{
+    width: 10vw;
+    height: 40vh;
+    top: 25%;
+    z-index: 6;
+    left: 3%;
+}
+
+.sculpture-picture11{
+    width: 12vw;
+    height: 46vh;
+    top: 35%;
+    z-index: 6;
+    left: 21.5%;
+}
+
+.sculpture-picture12{
+    width: 10vw;
+    height: 48vh;
+    top: 35%;
+    z-index: 6;
+    right: 23%;
+}
+
+.sculpture-picture13{
+    width: 10vw;
+    height: 42vh;
+    top: 27%;
+    z-index: 6;
+    right: 4%;
+}
+
+.puzzle4{
+    width: 6vw;
+    height: 6vw;    
+    z-index: 7;
+    top: 27%;
+    right: 27%;
+    opacity: 0.1;
+}
+
 /* THEATER ROOM */
 .theater{
-    
+    display: none;
 }
 
 .theater-container {
