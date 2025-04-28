@@ -64,6 +64,9 @@
                         <button name="switch_cam" class="photo-button">
                             <i class="fas fa-camera-rotate"></i>
                         </button>
+                        <button name="stop_timer" class="photo-button" style="display: none;">
+                            <i class="fas fa-stop"></i>
+                        </button>
                     </footer>
                 </div>
             </div>
@@ -94,7 +97,7 @@
         musicToggle.addEventListener("click", toggleMusic);
         // Start music automatically (but muted)
         document.addEventListener("DOMContentLoaded", function () {
-            bgMusic.volume = 0.5; // Set volume to 50%
+            bgMusic.volume = 0; // Set volume to 50% (I muted it momentarily)
             bgMusic.play();
             isMusicPlaying = true;
         });
@@ -196,11 +199,13 @@
         function startCountdown() {
             const countdownElement = document.getElementById("countdown");
             const overlayElement = document.getElementById("overlay");
-            let count = 5;
+            const stopButton = document.querySelector('button[name="stop_timer"]');
+            let count = 8;
 
-            // Show countdown and overlay
+            // Show countdown, overlay, and stop button
             countdownElement.style.display = "block";
             overlayElement.style.display = "block";
+            stopButton.style.display = 'block';
             countdownElement.textContent = count;
 
             // Start countdown
@@ -213,9 +218,20 @@
                     countdownInterval = null;
                     countdownElement.style.display = "none";
                     overlayElement.style.display = "none";
+                    stopButton.style.display = 'none';
                     takePhoto();
                 }
             }, 1000);
+        }
+
+        function stopTimer() {
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+                document.getElementById('countdown').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+                document.querySelector('button[name="stop_timer"]').style.display = 'none';
+            }
         }
 
         function switchCamera() {
@@ -308,8 +324,11 @@
                 'button[name="switch_cam"]'
             );
 
+            const stopTimerBtn = document.querySelector('button[name="stop_timer"]');
+
             takePhotoBtn.addEventListener("click", startCountdown);
             switchCamBtn.addEventListener("click", switchCamera);
+            stopTimerBtn.addEventListener('click', stopTimer);
         });
     </script>
     <style>
