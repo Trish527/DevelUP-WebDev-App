@@ -1,297 +1,318 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Home</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&family=Parkinsans:wght@300..800&family=Roboto:ital,wght@1,100&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Special+Gothic+Expanded+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Home</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&family=Parkinsans:wght@300..800&family=Roboto:ital,wght@1,100&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Special+Gothic+Expanded+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
 
-    <body>
-        <audio id="bgMusic" loop>
-            <source src="bgm1.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="bgm1.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+    </audio>
 
-        <button id="musicToggle" class="music-control">
-            <i class="fas fa-volume-up"></i>
-        </button>
+    <button id="musicToggle" class="music-control">
+        <i class="fas fa-volume-up"></i>
+    </button>
 
-        <section id="mainPage" class="main-page">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 text-center">
-                        <button onclick="goToGallery()" class="btn unlock">Unlock</button>
-                    </div>
+    <section id="mainPage" class="main-page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <button onclick="goToGallery()" class="btn unlock">Unlock</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="galleryPage" class="gallery-page" style="display: none;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <button onclick="goToMain()" class="btn icon-button"><i class="fas fa-arrow-left"></i></button>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <main>
-                            <div class="camera-center-wrapper">
-                                <video id="cameraFeed"></video>
-                                <img id="liveBorderOverlay" class="live-border-overlay" src="" alt="Border Overlay" />
-                            </div>
-                            <div class="camera-overlay"></div>
-                            <div id="overlay" class="overlay"></div>
-                            <div id="countdown" class="countdown-timer">5</div>
-                        </main>
-                        <footer>
-                            <button name="take_photo" class="photo-button">
-                                <i class="fas fa-camera-retro"></i>
-                            </button>
-                            <button name="switch_cam" class="photo-button">
-                                <i class="fas fa-camera-rotate"></i>
-                            </button>
-                        </footer>
-                    </div>
+    <section id="galleryPage" class="gallery-page" style="display: none">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <button onclick="goToMain()" class="btn icon-button">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
                 </div>
             </div>
-        </section>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <main>
+                        <div class="camera-center-wrapper">
+                            <video id="cameraFeed"></video>
+                            <img id="liveBorderOverlay" class="live-border-overlay" src="" alt="Border Overlay" />
+                        </div>
+                        <div class="camera-overlay"></div>
+                        <div id="overlay" class="overlay"></div>
+                        <div id="countdown" class="countdown-timer">5</div>
+                    </main>
+                    <footer>
+                        <button name="take_photo" class="photo-button">
+                            <i class="fas fa-camera-retro"></i>
+                        </button>
+                        <button name="switch_cam" class="photo-button">
+                            <i class="fas fa-camera-rotate"></i>
+                        </button>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Bootstrap JS Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-        <script>
-            // Music control
-            const bgMusic = document.getElementById('bgMusic');
-            const musicToggle = document.getElementById('musicToggle');
-            let isMusicPlaying = false;
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        // Website Background Music
+        const bgMusic = document.getElementById("bgMusic");
+        const musicToggle = document.getElementById("musicToggle");
+        let isMusicPlaying = false;
 
-            // Function to toggle music
-            function toggleMusic() {
-                if (isMusicPlaying) {
-                    bgMusic.pause();
-                    musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                } else {
-                    bgMusic.play();
-                    musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
-                }
-                isMusicPlaying = !isMusicPlaying;
-            }
-
-            // Add click event to toggle button
-            musicToggle.addEventListener('click', toggleMusic);
-
-            // Start music automatically (but muted)
-            document.addEventListener('DOMContentLoaded', function() {
-                bgMusic.volume = 0.5; // Set volume to 50%
+        // Function to toggle music (mute on or off)
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
                 bgMusic.play();
-                isMusicPlaying = true;
+                musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        }
+
+        // Add click event to toggle button
+        musicToggle.addEventListener("click", toggleMusic);
+        // Start music automatically (but muted)
+        document.addEventListener("DOMContentLoaded", function () {
+            bgMusic.volume = 0.5; // Set volume to 50%
+            bgMusic.play();
+            isMusicPlaying = true;
+        });
+
+        function goToGallery() {
+            gsap.to("#mainPage", {
+                duration: 0.5,
+                opacity: 0,
+                onComplete: function () {
+                    document.getElementById("mainPage").style.display = "none";
+                    document.getElementById("galleryPage").style.display = "block";
+                    gsap.fromTo(
+                        "#galleryPage",
+                        { opacity: 0 },
+                        { duration: 0.5, opacity: 1 }
+                    );
+                    initCamera(); // Opens camera when entering in the gallery page
+                },
             });
+        }
 
-            function goToGallery() {
-                gsap.to("#mainPage", {
-                    duration: 0.5,
-                    opacity: 0,
-                    onComplete: function() {
-                        document.getElementById('mainPage').style.display = 'none';
-                        document.getElementById('galleryPage').style.display = 'block';
-                        gsap.fromTo("#galleryPage", 
-                            { opacity: 0 },
-                            { duration: 0.5, opacity: 1 }
-                        );
-                        initCamera(); // Initialize camera when entering gallery
-                    }
-                });
+        function goToMain() {
+            gsap.to("#galleryPage", {
+                duration: 0.5,
+                opacity: 0,
+                onComplete: function () {
+                    document.getElementById("galleryPage").style.display = "none";
+                    document.getElementById("mainPage").style.display = "block";
+                    gsap.fromTo(
+                        "#mainPage",
+                        { opacity: 0 },
+                        { duration: 0.5, opacity: 1 }
+                    );
+                    stopCamera(); // Stop camera when leaving gallery
+                },
+            });
+        }
+
+        // Photo Booth functionality
+        let currentStream = null;
+        let facingMode = "user";
+        let countdownInterval = null;
+        let ModeisPortrait = false; // Will be set based on video orientation
+        let isFrontCamera = true; // Track which camera is active
+
+        function updateLiveBorderOverlay() {
+            const video = document.getElementById("cameraFeed");
+            const overlayImg = document.getElementById("liveBorderOverlay");
+            if (!video || !overlayImg) return;
+            // Determine camera orientation
+            const isPortrait = video.videoHeight > video.videoWidth;
+            overlayImg.src = isPortrait
+                ? "border-portrait.png"
+                : "border-landscape.png";
+        }
+
+        async function initCamera() {
+            try {
+                const constraints = {
+                    video: {
+                        facingMode: facingMode,
+                        width: { ideal: 1280 },
+                        height: { ideal: 720 },
+                    },
+                };
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                const video = document.getElementById("cameraFeed");
+                video.srcObject = stream;
+                video.autoplay = true;
+                video.playsInline = true;
+                currentStream = stream;
+
+                // Wait for video to be ready
+                video.onloadedmetadata = () => {
+                    video.play();
+                    updateLiveBorderOverlay();
+                };
+            } catch (err) {
+                console.error("Error accessing camera:", err);
             }
+        }
 
-            function goToMain() {
-                gsap.to("#galleryPage", {
-                    duration: 0.5,
-                    opacity: 0,
-                    onComplete: function() {
-                        document.getElementById('galleryPage').style.display = 'none';
-                        document.getElementById('mainPage').style.display = 'block';
-                        gsap.fromTo("#mainPage", 
-                            { opacity: 0 },
-                            { duration: 0.5, opacity: 1 }
-                        );
-                        stopCamera(); // Stop camera when leaving gallery
-                    }
-                });
+        function stopCamera() {
+            if (currentStream) {
+                currentStream.getTracks().forEach((track) => track.stop());
+                const video = document.getElementById("cameraFeed");
+                video.srcObject = null;
+                currentStream = null;
             }
-
-            // Photo Booth functionality
-            let currentStream = null;
-            let facingMode = "user";
-            let countdownInterval = null;
-            let ModeisPortrait = false; // Will be set based on video orientation
-            let isFrontCamera = true; // Track which camera is active
-
-            function updateLiveBorderOverlay() {
-                const video = document.getElementById('cameraFeed');
-                const overlayImg = document.getElementById('liveBorderOverlay');
-                if (!video || !overlayImg) return;
-                // Determine orientation
-                const isPortrait = video.videoHeight > video.videoWidth;
-                overlayImg.src = isPortrait ? 'border-portrait.png' : 'border-landscape.png';
+            // Clear any existing countdown
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
             }
+            document.getElementById("countdown").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
 
-            async function initCamera() {
-                try {
-                    const constraints = {
-                        video: {
-                            facingMode: facingMode,
-                            width: { ideal: 1280 },
-                            height: { ideal: 720 }
-                        }
-                    };
-                    const stream = await navigator.mediaDevices.getUserMedia(constraints);
-                    const video = document.getElementById('cameraFeed');
-                    video.srcObject = stream;
-                    video.autoplay = true;
-                    video.playsInline = true;
-                    currentStream = stream;
-                    
-                    // Wait for video to be ready
-                    video.onloadedmetadata = () => {
-                        video.play();
-                        updateLiveBorderOverlay();
-                    };
-                } catch (err) {
-                    console.error("Error accessing camera:", err);
-                }
-            }
+        function startCountdown() {
+            const countdownElement = document.getElementById("countdown");
+            const overlayElement = document.getElementById("overlay");
+            let count = 5;
 
-            function stopCamera() {
-                if (currentStream) {
-                    currentStream.getTracks().forEach(track => track.stop());
-                    const video = document.getElementById('cameraFeed');
-                    video.srcObject = null;
-                    currentStream = null;
-                }
-                // Clear any existing countdown
-                if (countdownInterval) {
+            // Show countdown and overlay
+            countdownElement.style.display = "block";
+            overlayElement.style.display = "block";
+            countdownElement.textContent = count;
+
+            // Start countdown
+            countdownInterval = setInterval(() => {
+                count--;
+                countdownElement.textContent = count;
+
+                if (count <= 0) {
                     clearInterval(countdownInterval);
                     countdownInterval = null;
+                    countdownElement.style.display = "none";
+                    overlayElement.style.display = "none";
+                    takePhoto();
                 }
-                document.getElementById('countdown').style.display = 'none';
-                document.getElementById('overlay').style.display = 'none';
+            }, 1000);
+        }
+
+        function switchCamera() {
+            // Toggle camera facing mode
+            facingMode = facingMode === "user" ? "environment" : "user";
+            isFrontCamera = !isFrontCamera;
+            stopCamera();
+            initCamera();
+            // Update overlay after camera switches
+            setTimeout(updateLiveBorderOverlay, 500);
+        }
+
+        function takePhoto() {
+            const video = document.getElementById("cameraFeed");
+            const compositeCanvas = document.createElement("canvas");
+            const compositeCtx = compositeCanvas.getContext("2d");
+
+            // Set canvas size based on detected camera orientation
+            let isPortrait = video.videoHeight > video.videoWidth;
+            if (isPortrait) {
+                compositeCanvas.width = 720;
+                compositeCanvas.height = 1280;
+            } else {
+                compositeCanvas.width = 1280;
+                compositeCanvas.height = 720;
             }
 
-            function startCountdown() {
-                const countdownElement = document.getElementById('countdown');
-                const overlayElement = document.getElementById('overlay');
-                let count = 5;
-                
-                // Show countdown and overlay
-                countdownElement.style.display = 'block';
-                overlayElement.style.display = 'block';
-                countdownElement.textContent = count;
-                
-                // Start countdown
-                countdownInterval = setInterval(() => {
-                    count--;
-                    countdownElement.textContent = count;
-                    
-                    if (count <= 0) {
-                        clearInterval(countdownInterval);
-                        countdownInterval = null;
-                        countdownElement.style.display = 'none';
-                        overlayElement.style.display = 'none';
-                        takePhoto();
-                    }
-                }, 1000);
+            // Calculate aspect ratios
+            const borderAspect = compositeCanvas.width / compositeCanvas.height;
+            const videoAspect = video.videoWidth / video.videoHeight;
+
+            let sx, sy, sWidth, sHeight;
+
+            if (videoAspect > borderAspect) {
+                // Camera is wider than border: crop width
+                sHeight = video.videoHeight;
+                sWidth = sHeight * borderAspect;
+                sx = (video.videoWidth - sWidth) / 2;
+                sy = 0;
+            } else {
+                // Camera is taller than border: crop height
+                sWidth = video.videoWidth;
+                sHeight = sWidth / borderAspect;
+                sx = 0;
+                sy = (video.videoHeight - sHeight) / 2;
             }
 
-            function switchCamera() {
-                // Toggle camera facing mode
-                facingMode = facingMode === "user" ? "environment" : "user";
-                isFrontCamera = !isFrontCamera;
-                stopCamera();
-                initCamera();
-                // Update overlay after camera switches
-                setTimeout(updateLiveBorderOverlay, 500);
-            }
+            // Draw the cropped camera image to fill the border
+            compositeCtx.drawImage(
+                video,
+                sx,
+                sy,
+                sWidth,
+                sHeight,
+                0,
+                0,
+                compositeCanvas.width,
+                compositeCanvas.height
+            );
 
-            function takePhoto() {
-                const video = document.getElementById('cameraFeed');
-                const compositeCanvas = document.createElement('canvas');
-                const compositeCtx = compositeCanvas.getContext('2d');
-
-                // Set composite canvas size based on detected orientation
-                let isPortrait = video.videoHeight > video.videoWidth;
-                if (isPortrait) {
-                    compositeCanvas.width = 720;
-                    compositeCanvas.height = 1280;
-                } else {
-                    compositeCanvas.width = 1280;
-                    compositeCanvas.height = 720;
-                }
-
-                // Calculate aspect ratios
-                const borderAspect = compositeCanvas.width / compositeCanvas.height;
-                const videoAspect = video.videoWidth / video.videoHeight;
-
-                let sx, sy, sWidth, sHeight;
-
-                if (videoAspect > borderAspect) {
-                    // Camera is wider than border: crop width
-                    sHeight = video.videoHeight;
-                    sWidth = sHeight * borderAspect;
-                    sx = (video.videoWidth - sWidth) / 2;
-                    sy = 0;
-                } else {
-                    // Camera is taller than border: crop height
-                    sWidth = video.videoWidth;
-                    sHeight = sWidth / borderAspect;
-                    sx = 0;
-                    sy = (video.videoHeight - sHeight) / 2;
-                }
-
-                // Draw the cropped camera image to fill the border
+            // Draw the correct border image
+            const borderImage = new Image();
+            borderImage.src = isPortrait
+                ? "border-portrait.png"
+                : "border-landscape.png";
+            borderImage.onload = function () {
                 compositeCtx.drawImage(
-                    video,
-                    sx, sy, sWidth, sHeight,
-                    0, 0, compositeCanvas.width, compositeCanvas.height
+                    borderImage,
+                    0,
+                    0,
+                    compositeCanvas.width,
+                    compositeCanvas.height
                 );
 
-                // Draw the correct border image
-                const borderImage = new Image();
-                borderImage.src = isPortrait ? 'border-portrait.png' : 'border-landscape.png';
-                borderImage.onload = function() {
-                    compositeCtx.drawImage(borderImage, 0, 0, compositeCanvas.width, compositeCanvas.height);
+                // Create download link for the composite image
+                const link = document.createElement("a");
+                const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+                link.download = `Photo-Booth-${timestamp}.jpeg`;
+                link.href = compositeCanvas.toDataURL("image/jpeg");
+                link.click();
+            };
+        }
 
-                    // Create download link for the composite image
-                    const link = document.createElement('a');
-                    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-                    link.download = `Photo-Booth-${timestamp}.jpeg`;
-                    link.href = compositeCanvas.toDataURL('image/jpeg');
-                    link.click();
-                };
-            }
+        // Add event listeners for photo booth buttons
+        document.addEventListener("DOMContentLoaded", function () {
+            const takePhotoBtn = document.querySelector(
+                'button[name="take_photo"]'
+            );
+            const switchCamBtn = document.querySelector(
+                'button[name="switch_cam"]'
+            );
 
-            // Add event listeners for photo booth buttons
-            document.addEventListener('DOMContentLoaded', function() {
-                const takePhotoBtn = document.querySelector('button[name="take_photo"]');
-                const switchCamBtn = document.querySelector('button[name="switch_cam"]');
-                
-                takePhotoBtn.addEventListener('click', startCountdown);
-                switchCamBtn.addEventListener('click', switchCamera);
-            });
-        </script>
-        <style>
+            takePhotoBtn.addEventListener("click", startCountdown);
+            switchCamBtn.addEventListener("click", switchCamera);
+        });
+    </script>
+    <style>
         .live-border-overlay {
             position: absolute;
             top: 0;
@@ -302,6 +323,7 @@
             z-index: 20;
             object-fit: fill;
         }
+
         main {
             width: 98%;
             max-width: 1100px;
@@ -318,7 +340,7 @@
             padding-top: 2rem;
             margin: 0 auto;
         }
-        </style>
-    </body>
+    </style>
+</body>
 
 </html>
