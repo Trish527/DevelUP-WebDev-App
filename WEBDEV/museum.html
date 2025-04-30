@@ -7,13 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="bgMusic" loop>
+        <source src="bgm1.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+    </audio>
+
+    <button id="musicToggle" class="music-control">
+        <i class="fas fa-volume-up"></i>
+    </button>
 
     <!-- ENTRANCE -->
-    <section class="entrance">
+    <section class="entrance visible" id = "entrance-section">
         <div class="entrance-container">
             <div class="entrance-content">
                 <div class="entrance-wrapper">
-                    <img src="hallway.png" alt="placeholder" class="entrance-open">
+                    <img src="hallway.png" alt="placeholder" class="entrance-open" id="hallway-img">
                     
                     <div id="left-door" class="door">       
                         <div class="shape"></div>
@@ -36,12 +44,12 @@
     </section>
     
     <!-- PORTRAIT ROOM -->
-    <section class ="portrait">
+    <section class ="portrait hidden" id = "portrait-section">
         <div class="portrait-container">
             <div class="portrait-content">
                 <div class="portrait-layer" class = "divReal" id = "FA-1">
                     <div class="divReal" id="FA-1">
-                        <img src="puzzle-placeholder.png" class="puzzle1">
+                        <img src="puzzle-placeholder.png" class="puzzle1" id="puzzle-1">
                     </div>
                     <img src = "cappuccino-assassino.png" class="portrait-picture1">
                     <img src = "ballerina-cappuccina.png" class="portrait-picture2">
@@ -73,7 +81,7 @@
     </section>
 
     <!-- SCULPTURE ROOM -->
-    <section class ="sculpture">
+    <section class ="sculpture hidden" id = "sculpture-section">
         <div class="sculpture-container">
             <div class="sculpture-content">
                 <div class="sculpture-layer">
@@ -92,7 +100,7 @@
                     <img src= "sculpture-picture6.png" class= "sculpture-picture12">
                     <img src= "sculpture-picture7.png" class= "sculpture-picture13">
                     <div class = "divReal" id = "FA-2">
-                        <img src="puzzle-placeholder.png" class="puzzle4">
+                        <img src="puzzle-placeholder.png" class="puzzle4" id="puzzle-4">
                     </div>
                 </div>
             </div>
@@ -100,7 +108,7 @@
     </section>
 
     <!-- THEATER ROOM -->
-    <section class ="theater">
+    <section class ="theater hidden" id = "theater-section">
         <div class="theater-container">
             <div class="theater-content">
                 <div class="theater-layer">
@@ -142,7 +150,6 @@
                     <img src= "clothes5.png" class= "theater-clothes5">
                     <img src= "clothes6.png" class= "theater-clothes6">
                     <img src= "clothes7.png" class= "theater-clothes7">
-                    <img src= "clothes4.png" class= "theater-clothes8">
                 </div>
 
             </div>
@@ -187,5 +194,92 @@
             </div>
         </div>
     </section>
+
+    <script>
+    // Entrance to portrait room transition
+    document.getElementById('hallway-img').addEventListener('click', function () {
+        const entrance = document.getElementById('entrance-section');
+        const portrait = document.getElementById('portrait-section');
+    
+        entrance.classList.remove('visible');
+        entrance.classList.add('hidden');
+    
+        setTimeout(() => {
+            portrait.classList.remove('hidden');
+            portrait.classList.add('visible');
+        }, 1000);
+    });
+    
+        document.getElementById('puzzle-1').addEventListener('click', function () {
+        console.log('Puzzle clicked'); // Debugging line
+        const portrait = document.getElementById('portrait-section');
+        const sculpture = document.getElementById('sculpture-section');
+    
+        // Fade out portrait
+        portrait.classList.remove('visible');
+        portrait.classList.add('hidden');
+    
+        // Fade in sculpture after 1 second
+        setTimeout(() => {
+            sculpture.classList.remove('hidden');
+            sculpture.classList.add('visible');
+        }, 1000);
+    });
+
+    document.getElementById('puzzle-4').addEventListener('click', function () {
+        console.log('Puzzle clicked'); 
+        const sculpture = document.getElementById('sculpture-section');
+        const theater = document.getElementById('theater-section');
+    
+        sculpture.classList.remove('visible');
+        sculpture.classList.add('hidden');
+    
+        setTimeout(() => {
+            theater.classList.remove('hidden');
+            theater.classList.add('visible');
+        }, 1000);
+    });
+
+
+    </script>
+
+    
+    <script>
+        // Website Background Music
+        const bgMusic = document.getElementById("bgMusic");
+        const musicToggle = document.getElementById("musicToggle");
+        let isMusicPlaying = false;
+
+        // Function to toggle music (mute on or off)
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                bgMusic.play();
+                musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        }
+
+    // Add click event to toggle button
+    document.addEventListener("DOMContentLoaded", function () {
+    // Initialize music muted
+        bgMusic.volume = 0.5;
+        bgMusic.muted = true;
+
+        musicToggle.addEventListener("click", function () {
+            bgMusic.muted = !bgMusic.muted;
+
+            if (bgMusic.muted) {
+                bgMusic.pause();
+                musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                bgMusic.play().catch(err => console.error("Play failed:", err));
+                musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+        });
+    });
+    </script>
 </body>
 </html>
