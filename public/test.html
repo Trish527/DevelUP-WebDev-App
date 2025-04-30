@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent File Checker</title>
+</head>
+<body>
+    <h1>Check Recent File</h1>
+    <button id="checkFileBtn">Check Recent File</button>
+    <p id="recentFile"></p>
+
+    <script>
+        document.getElementById('checkFileBtn').addEventListener('click', () => {
+            fetch('/recent-file')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('recentFile').innerText = `Most recent file: ${data.recentFile}`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
