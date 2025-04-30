@@ -91,13 +91,37 @@
         }
 
         // Add click event to toggle button
-        musicToggle.addEventListener("click", toggleMusic);
-        // Start music automatically (but muted)
         document.addEventListener("DOMContentLoaded", function () {
-            bgMusic.volume = 0; // Set volume to 50% (I muted it momentarily)
-            bgMusic.play();
-            isMusicPlaying = true;
-        });
+    // Try to autoplay muted (most browsers block this, but it's okay)
+    bgMusic.volume = 0;
+    bgMusic.muted = true;
+    bgMusic.play().catch(() => {
+        // It's expected to fail silently
+        console.warn("Muted autoplay failed. Waiting for user interaction.");
+    });
+
+    // Handle unmuting and playing on actual user click/touch (only once)
+    const enableAudio = () => {
+        if (!isMusicPlaying) {
+            bgMusic.muted = false;
+            bgMusic.volume = 0.5;
+            bgMusic.play().then(() => {
+                isMusicPlaying = true;
+                musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }).catch((err) => {
+                console.error("Play failed even on user interaction:", err);
+            });
+        }
+
+        // Remove listeners to avoid repeated triggers
+        document.removeEventListener("click", enableAudio);
+        document.removeEventListener("touchstart", enableAudio);
+    };
+
+        document.addEventListener("click", enableAudio, { once: true });
+        document.addEventListener("touchstart", enableAudio, { once: true });
+    });
+
 
         function goToGallery() {
             gsap.to("#mainPage", {
