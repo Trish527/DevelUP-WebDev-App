@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -90,36 +90,23 @@
             isMusicPlaying = !isMusicPlaying;
         }
 
-        // Add click event to toggle button
-        document.addEventListener("DOMContentLoaded", function () {
-    // Try to autoplay muted (most browsers block this, but it's okay)
-    bgMusic.volume = 0;
-    bgMusic.muted = true;
-    bgMusic.play().catch(() => {
-        // It's expected to fail silently
-        console.warn("Muted autoplay failed. Waiting for user interaction.");
-    });
+    // Add click event to toggle button
+    document.addEventListener("DOMContentLoaded", function () {
+    // Initialize music muted
+        bgMusic.volume = 0.5;
+        bgMusic.muted = true;
 
-    // Handle unmuting and playing on actual user click/touch (only once)
-    const enableAudio = () => {
-        if (!isMusicPlaying) {
-            bgMusic.muted = false;
-            bgMusic.volume = 0.5;
-            bgMusic.play().then(() => {
-                isMusicPlaying = true;
+        musicToggle.addEventListener("click", function () {
+            bgMusic.muted = !bgMusic.muted;
+
+            if (bgMusic.muted) {
+                bgMusic.pause();
+                musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                bgMusic.play().catch(err => console.error("Play failed:", err));
                 musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
-            }).catch((err) => {
-                console.error("Play failed even on user interaction:", err);
-            });
-        }
-
-        // Remove listeners to avoid repeated triggers
-        document.removeEventListener("click", enableAudio);
-        document.removeEventListener("touchstart", enableAudio);
-    };
-
-        document.addEventListener("click", enableAudio, { once: true });
-        document.addEventListener("touchstart", enableAudio, { once: true });
+            }
+        });
     });
 
 
