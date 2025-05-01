@@ -10,13 +10,18 @@ const PORT = 3000;
 const folderPath = path.join(__dirname, 'Images');
 if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath);
-    console.log("Folder created:", folderPath);
+    console.log("Created folder:", folderPath);
 }
+
+// ✅ Serve the Images folder publicly via /Images
+app.use('/Images', express.static(folderPath));
 
 // Middleware
 app.use(cors()); // Enable CORS for all origins
 app.use(express.json({ limit: '10mb' })); // Parse JSON with large payload
-app.use(express.static(path.join(__dirname, 'public'))); // Serve static files
+
+// ✅ Serve all static files in /public
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Route: Save photo from front-end
 app.post('/save-photo', (req, res) => {
@@ -37,7 +42,7 @@ app.post('/save-photo', (req, res) => {
             return res.status(500).send('Failed to save photo');
         }
 
-        console.log("Saved:", filename);
+        console.log("Saved image:", filename);
         res.send('Photo saved successfully');
     });
 });
@@ -62,16 +67,21 @@ app.get('/recent-file', (req, res) => {
             }
         });
 
+        if (!recentFile) {
+            return res.status(404).send('No image files found');
+        }
+
         res.json({ recentFile });
     });
 });
 
-// Route: Serve main test page
+// Route: Serve test page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'file-test.html'));
 });
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server running at: http://localhost:${PORT}`);
+    console.log(`Images folder served at: http://localhost:${PORT}/Images`);
 });

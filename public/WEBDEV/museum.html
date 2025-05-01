@@ -94,7 +94,6 @@
         </div>
     </section>
 
-
     <!-- PORTRAIT ROOM -->
     <section class="portrait hidden" id="portrait-section">
         <div class="portrait-container">
@@ -509,6 +508,7 @@
             });
         });
     </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const bgMusic = document.getElementById("bgMusic");
@@ -572,13 +572,27 @@
             });
         });
     </script>
-    <!-- Add this right before the closing </body> tag -->
+
     <script>
+        //Fragmenter Portion
+        var recent_file;
+        fetch('http://localhost:3000/recent-file')
+            .then(response => response.json())
+            .then(data => {
+                recent_file = data.recentFile;
+                console.log(recent_file);
+                fragmentImage(recent_file);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+        });
+            
+
         // Fragment Collection System with Victory Screen
         document.addEventListener("DOMContentLoaded", function () {
             const fragmentDisplay = document.querySelector('.fragment-display');
             let fragmentsCollected = 0;
-
+            
             // Create empty slots for all fragments
             for (let i = 0; i < 6; i++) {
                 const fragmentSlot = document.createElement('img');
@@ -668,19 +682,46 @@
             });
         });
 
-        //Fragmenter Portion
-        fetch('/recent-file')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('recentFile').innerText = `Most recent file: ${data.recentFile}`;
-                recent_file = data.recentFile;
-                console.log(recent_file);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+        function fragmentImage(imagePath) {
+            const fragmentCount = 6;
+            const image = new Image();
+            image.src = '/Images/' + recent_file;
+            image.crossOrigin = "anonymous"; // if needed
 
-        
+            image.onload = function () {
+                const width = image.width;
+                const height = image.height;
+                const fragmentHeight = height / fragmentCount;
+
+                for (let i = 0; i < fragmentCount; i++) {
+                    const canvas = document.createElement("canvas");
+                    canvas.width = width;
+                    canvas.height = fragmentHeight;
+
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(
+                        image,
+                        0, i * fragmentHeight,   // Source x, y
+                        width, fragmentHeight,   // Source w, h
+                        0, 0,                    // Dest x, y
+                        width, fragmentHeight    // Dest w, h
+                    );
+
+                    const fragmentDataUrl = canvas.toDataURL("image/png");
+                    const imgElement = document.getElementById(`puzzle-${i + 1}`);
+                    if (imgElement) {
+                        imgElement.src = fragmentDataUrl;
+                        imgElement.alt = `Puzzle Piece ${i + 1}`; // Fix accessibility warning
+                    }
+                }
+            };
+
+            image.onerror = function () {
+                console.error("Failed to load source image:", imagePath);
+        };
+    }
+
+  
     </script>
 </body>
 
