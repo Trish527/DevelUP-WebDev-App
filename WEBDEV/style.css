@@ -46,7 +46,7 @@ section {
 }
 
 /* Apply this once for all sections */
-.entrance, .portrait, .sculpture, .theater, .souvenir {
+.entrance, .portrait, .sculpture, .theater, .souvenir, .victory, .lobby {
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -183,6 +183,33 @@ section {
 .puzzle1, .puzzle4, .puzzle2, .puzzle3, .puzzle5, .puzzle6{
     cursor: pointer;
 }
+
+/* LOBBY */
+.lobby{
+
+}
+
+.lobby-container {
+    background-image: url("LobbyBG.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;   
+}
+
+.lobby-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.lobby-layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
 
 /* PORTRAIT ROOM */
 .portrait{
@@ -897,4 +924,24 @@ section {
     z-index: 2;
     top: 44.5%;
     left: 35.8%;
+}
+
+.victory-container {
+    background-image: url("victoryBG.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.victory-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.victory-layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }

@@ -68,6 +68,20 @@
             </div>
         </div>
     </section>
+
+    <!-- LOBBY -->
+    <section class ="lobby hidden" id = "lobby-section">
+        <div class="lobby-container">
+            <div class="lobby-content">
+                <div class="lobby-layer">
+
+                    
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
     
     <!-- PORTRAIT ROOM -->
     <section class ="portrait hidden" id = "portrait-section">
@@ -228,95 +242,33 @@
         </div>
     </section>
 
+    <!-- VICTORY SCREEN  -->
+    <section class ="victory hidden" id = "victory-section">
+        <div class="victory-container">
+            <div class="victory-content">
+                <div class="victory-layer">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
-    // Entrance to portrait room transition
+    // Entrance to Lobby
     document.getElementById('hallway-img').addEventListener('click', function () {
         const entrance = document.getElementById('entrance-section');
-        const portrait = document.getElementById('portrait-section');
+        const lobby = document.getElementById('lobby-section');
     
         entrance.classList.remove('visible');
         entrance.classList.add('hidden');
     
         setTimeout(() => {
-            portrait.classList.remove('hidden');
-            portrait.classList.add('visible');
+            lobby.classList.remove('hidden');
+            lobby.classList.add('visible');
         }, 1000);
     });
     
-    document.getElementById('puzzle-1').addEventListener('click', function () {
-        console.log('Puzzle clicked'); // Debugging line
-        const portrait = document.getElementById('portrait-section');
-        const sculpture = document.getElementById('sculpture-section');
     
-        // Fade out portrait
-        portrait.classList.remove('visible');
-        portrait.classList.add('hidden');
-    
-        // Fade in sculpture after 1 second
-        setTimeout(() => {
-            sculpture.classList.remove('hidden');
-            sculpture.classList.add('visible');
-        }, 1000);
-    });
-
-    document.getElementById('puzzle-4').addEventListener('click', function () {
-        console.log('Puzzle clicked'); 
-        const sculpture = document.getElementById('sculpture-section');
-        const theater = document.getElementById('theater-section');
-    
-        sculpture.classList.remove('visible');
-        sculpture.classList.add('hidden');
-    
-        setTimeout(() => {
-            theater.classList.remove('hidden');
-            theater.classList.add('visible');
-        }, 1000);
-    });
-
-    // Theater to souvenir (dual puzzle)
-    let puzzle2Clicked = false;
-    let puzzle3Clicked = false;
-    const puzzle2 = document.getElementById('puzzle-2');
-    const puzzle3 = document.getElementById('puzzle-3');
-
-    if (puzzle2 && puzzle3) {
-        puzzle2.addEventListener('click', function () {
-            if (!puzzle2Clicked) {
-                console.log('Puzzle 2 clicked');
-                puzzle2Clicked = true;
-                puzzle2.style.pointerEvents = "none";
-                checkBothPuzzlesClicked();
-            }
-        });
-
-        puzzle3.addEventListener('click', function () {
-            if (!puzzle3Clicked) {
-                console.log('Puzzle 3 clicked');
-                puzzle3Clicked = true;
-                puzzle3.style.pointerEvents = "none";
-                checkBothPuzzlesClicked();
-            }
-        });
-    }
-
-    function checkBothPuzzlesClicked() {
-        if (puzzle2Clicked && puzzle3Clicked) {
-            const theater = document.getElementById('theater-section');
-            const souvenir = document.getElementById('souvenir-section');
-            if (theater && souvenir) {
-                theater.classList.remove('visible');
-                theater.classList.add('hidden');
-                setTimeout(() => {
-                    souvenir.classList.remove('hidden');
-                    souvenir.classList.add('visible');
-                }, 1000);
-            } else {
-                console.error('Theater or Souvenir section not found!');
-            }
-        }
-    }
-
-
 
     </script>
 
