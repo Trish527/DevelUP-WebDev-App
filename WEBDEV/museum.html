@@ -88,6 +88,9 @@
     <section class ="portrait hidden" id = "portrait-section">
         <div class="portrait-container">
             <div class="portrait-content">
+                <button class="map-button">
+                    <img src="Map-button.png" alt="Map">
+                </button>
                 <div class="portrait-layer" class = "divReal" id = "FA-1">
 
                     
@@ -128,6 +131,9 @@
     <section class ="sculpture hidden" id = "sculpture-section">
         <div class="sculpture-container">
             <div class="sculpture-content">
+                <button class="map-button">
+                    <img src="Map-button.png" alt="Map">
+                </button>
                 <div class="sculpture-layer">
                     <img src= "chimpanzini-bananini.png" class= "sculpture-picture1">
                     <img src= "sculpture-picture2.png" class= "sculpture-picture2">
@@ -157,6 +163,9 @@
     <section class ="theater hidden" id = "theater-section">
         <div class="theater-container">
             <div class="theater-content">
+                <button class="map-button">
+                    <img src="Map-button.png" alt="Map">
+                </button>
                 <div class="theater-layer">
                     <img src= "TungTungTungSahur.png" class= "theater-picture1">
                     <img src= "lirili-larila.png" class= "theater-picture2">
@@ -208,6 +217,9 @@
     <section class ="souvenir hidden" id = "souvenir-section">
         <div class="souvenir-container">
             <div class="souvenir-content">
+                <button class="map-button">
+                    <img src="Map-button.png" alt="Map">
+                </button>
                 <div class="souvenir-layer">
                     <img src= "La-vaca-Saturno-Saturnita.png" class= "souvenir-picture1">
                     <img src= "souvenir-jewelry.png" class= "souvenir-picture2">
@@ -395,44 +407,94 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-          // Image-Audio pairs
-          const clickAudioPairs = [
-            {
-              selector: 'img[src="chimpanzini-bananini.png"]',
-              audioId: 'chimpanziniTrack'
-            },
-            {
-              selector: 'img[src="TungTungTungSahur.png"]',
-              audioId: 'tungtungTrack'
-            },
-            {
-              selector: 'img[src="lirili-larila.png"]',
-              audioId: 'liriliTrack'
-            },
-            {
-              selector: 'img[src="La-vaca-Saturno-Saturnita.png"]',
-              audioId: 'lavacaTrack'
-            }
-          ];
-        
-          // Loop through and assign handlers
-          clickAudioPairs.forEach(pair => {
-            const img = document.querySelector(pair.selector);
-            const audio = document.getElementById(pair.audioId);
-        
-            if (img && audio) {
-              img.style.cursor = "pointer";
-              audio.pause();
-              audio.currentTime = 0;
-        
-              img.addEventListener("click", () => {
-                audio.currentTime = 0;
-                audio.play().catch(e => console.warn(`${pair.audioId} play failed:`, e));
-              });
-            }
-          });
+  const bgMusic = document.getElementById("bgMusic");
+
+  const clickAudioPairs = [
+    { selector: 'img[src="cappuccino-assassino.png"]', audioId: 'cappuccinoTrack' },
+    { selector: 'img[src="ballerina-cappuccina.png"]', audioId: 'ballerinaTrack' },
+    { selector: 'img[src="chimpanzini-bananini.png"]', audioId: 'chimpanziniTrack' },
+    { selector: 'img[src="TungTungTungSahur.png"]', audioId: 'tungtungTrack' },
+    { selector: 'img[src="lirili-larila.png"]', audioId: 'liriliTrack' },
+    { selector: 'img[src="La-vaca-Saturno-Saturnita.png"]', audioId: 'lavacaTrack' }
+  ];
+
+  // Get all audio elements
+  const allAudio = clickAudioPairs.map(pair => document.getElementById(pair.audioId));
+  allAudio.push(bgMusic); // include bgMusic in the group to pause
+
+  // Add click event listeners
+  clickAudioPairs.forEach(pair => {
+    const img = document.querySelector(pair.selector);
+    const audio = document.getElementById(pair.audioId);
+
+    if (img && audio) {
+      img.style.cursor = "pointer";
+
+      img.addEventListener("click", () => {
+        // Stop all other audio
+        allAudio.forEach(a => {
+          if (!a.paused) a.pause();
+          a.currentTime = 0;
         });
+
+        // Play selected track
+        audio.play().catch(e => console.warn(`${pair.audioId} play failed:`, e));
+
+        // When it ends, resume bgMusic
+        audio.onended = () => {
+          bgMusic.play().catch(e => console.warn("bgMusic resume failed:", e));
+        };
+      });
+    }
+  });
+});
+        // Map Button Functionality
+document.addEventListener("DOMContentLoaded", function() {
+    const mapButtons = document.querySelectorAll('.map-button');
+    
+    mapButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('visible');
+                section.classList.add('hidden');
+            });
+            
+            // Show entrance/lobby section
+            const entranceSection = document.getElementById('lobby-section');
+            entranceSection.classList.remove('hidden');
+            entranceSection.classList.add('visible');
+        });
+    });
+});
         </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Get all puzzle elements (puzzle1 to puzzle6)
+                const puzzles = [
+                    document.getElementById('puzzle-1'),  // Portrait Room
+                    document.querySelector('.puzzle2'),   // Theater Room (FA-4)
+                    document.querySelector('.puzzle3'),   // Theater Room (FA-3)
+                    document.querySelector('.puzzle4'),   // Sculpture Room
+                    document.querySelector('.puzzle5'),   // Souvenir Shop (FA-5)
+                    document.querySelector('.puzzle6')     // Souvenir Shop (FA-6)
+                ];
         
+                // Loop through each puzzle and add click event
+                puzzles.forEach(puzzle => {
+                    if (puzzle) {
+                        puzzle.addEventListener('click', function() {
+                            // Fade out the puzzle
+                            this.style.opacity = '0';
+                            
+                            // Remove from DOM after fade completes (optional)
+                            setTimeout(() => {
+                                this.style.display = 'none';
+                            }, 1000); // Matches the CSS transition duration
+                        });
+                    }
+                });
+            });
+        </script>
 </body>
 </html>

@@ -182,6 +182,7 @@ section {
 
 .puzzle1, .puzzle4, .puzzle2, .puzzle3, .puzzle5, .puzzle6{
     cursor: pointer;
+    transition: opacity 1s ease-in-out;
 }
 
 .portrait-room, .souvenir-room, .sculpture-room, .theater-room{
@@ -983,4 +984,30 @@ section {
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+/* Map Button */
+.map-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: rgba(233, 228, 213, 0.7);
+    border: 1.5px solid #bfa77a;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(80, 60, 30, 0.10);
+}
+
+.map-button img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.map-button:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.9);
 }
