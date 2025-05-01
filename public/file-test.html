@@ -11,11 +11,14 @@
     <p id="recentFile"></p>
 
     <script>
+        var recent_file;
         document.getElementById('checkFileBtn').addEventListener('click', () => {
             fetch('/recent-file')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('recentFile').innerText = `Most recent file: ${data.recentFile}`;
+                    recent_file = data.recentFile; 
+                    console.log(recent_file);
                 })
                 .catch(error => {
                     console.error('Error:', error);
