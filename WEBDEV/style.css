@@ -180,7 +180,7 @@ section {
     cursor: pointer;
 }
 
-.puzzle1, .puzzle4{
+.puzzle1, .puzzle4, .puzzle2, .puzzle3, .puzzle5, .puzzle6{
     cursor: pointer;
 }
 
@@ -695,7 +695,7 @@ section {
 
 /*SOUVENIR SHOP*/
 .souvenir{
-    display: none;
+
 }
 
 .souvenir-container {
