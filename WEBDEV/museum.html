@@ -11,6 +11,32 @@
         <source src="bgm1.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
     </audio>
+    <audio id="cappuccinoTrack">
+        <source src="Cappuccino.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <audio id="ballerinaTrack">
+        <source src="Ballerina.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="chimpanziniTrack">
+        <source src="chimpanzini.mp3" type="audio/mpeg">
+      </audio>
+      
+      <audio id="tungtungTrack">
+        <source src="tungtung.mp3" type="audio/mpeg">
+      </audio>
+      
+      <audio id="liriliTrack">
+        <source src="lirili.mp3" type="audio/mpeg">
+      </audio>
+      
+      <audio id="lavacaTrack">
+        <source src="lavaca.mp3" type="audio/mpeg">
+      </audio>
+      
 
     <button id="musicToggle" class="music-control">
         <i class="fas fa-volume-up"></i>
@@ -239,11 +265,8 @@
             theater.classList.add('visible');
         }, 1000);
     });
-
-
     </script>
 
-    
     <script>
         // Website Background Music
         const bgMusic = document.getElementById("bgMusic");
@@ -281,5 +304,75 @@
         });
     });
     </script>
+ <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cappuccinoImg = document.querySelector('img[src="cappuccino-assassino.png"]');
+      const ballerinaImg = document.querySelector('img[src="ballerina-cappuccina.png"]');
+      const cappuccinoAudio = document.getElementById('cappuccinoTrack');
+      const ballerinaAudio = document.getElementById('ballerinaTrack');
+    
+      // Reset everything to safe defaults
+      [cappuccinoAudio, ballerinaAudio].forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+    
+      // Set click cursor
+      cappuccinoImg.style.cursor = "pointer";
+      ballerinaImg.style.cursor = "pointer";
+    
+      // Add click-only handlers
+      cappuccinoImg.addEventListener("click", () => {
+        cappuccinoAudio.currentTime = 0;
+        cappuccinoAudio.play().catch(e => console.warn("Cappuccino play error:", e));
+      });
+    
+      ballerinaImg.addEventListener("click", () => {
+        ballerinaAudio.currentTime = 0;
+        ballerinaAudio.play().catch(e => console.warn("Ballerina play error:", e));
+      });
+    });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // Image-Audio pairs
+          const clickAudioPairs = [
+            {
+              selector: 'img[src="chimpanzini-bananini.png"]',
+              audioId: 'chimpanziniTrack'
+            },
+            {
+              selector: 'img[src="TungTungTungSahur.png"]',
+              audioId: 'tungtungTrack'
+            },
+            {
+              selector: 'img[src="lirili-larila.png"]',
+              audioId: 'liriliTrack'
+            },
+            {
+              selector: 'img[src="La-vaca-Saturno-Saturnita.png"]',
+              audioId: 'lavacaTrack'
+            }
+          ];
+        
+          // Loop through and assign handlers
+          clickAudioPairs.forEach(pair => {
+            const img = document.querySelector(pair.selector);
+            const audio = document.getElementById(pair.audioId);
+        
+            if (img && audio) {
+              img.style.cursor = "pointer";
+              audio.pause();
+              audio.currentTime = 0;
+        
+              img.addEventListener("click", () => {
+                audio.currentTime = 0;
+                audio.play().catch(e => console.warn(`${pair.audioId} play failed:`, e));
+              });
+            }
+          });
+        });
+        </script>
+        
 </body>
 </html>
