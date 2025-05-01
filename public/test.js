@@ -113,6 +113,61 @@ function takePhoto() {
     link.click();
 }
 
+function takePhoto() {
+    const video = document.getElementById("cameraFeed");
+    const compositeCanvas = document.createElement("canvas");
+    const compositeCtx = compositeCanvas.getContext("2d");
+
+    let isPortrait = video.videoHeight > video.videoWidth;
+    compositeCanvas.width = isPortrait ? 720 : 1280;
+    compositeCanvas.height = isPortrait ? 1280 : 720;
+
+    const borderAspect = compositeCanvas.width / compositeCanvas.height;
+    const videoAspect = video.videoWidth / video.videoHeight;
+
+    let sx, sy, sWidth, sHeight;
+
+    if (videoAspect > borderAspect) {
+        sHeight = video.videoHeight;
+        sWidth = sHeight * borderAspect;
+        sx = (video.videoWidth - sWidth) / 2;
+        sy = 0;
+    } else {
+        sWidth = video.videoWidth;
+        sHeight = sWidth / borderAspect;
+        sx = 0;
+        sy = (video.videoHeight - sHeight) / 2;
+    }
+
+    compositeCtx.drawImage(video, sx, sy, sWidth, sHeight, 0, 0, compositeCanvas.width, compositeCanvas.height);
+
+    const borderImage = new Image();
+    borderImage.src = isPortrait ? "border-portrait.png" : "border-landscape.png";
+    borderImage.onload = function () {
+        compositeCtx.drawImage(borderImage, 0, 0, compositeCanvas.width, compositeCanvas.height);
+
+        const imageData = compositeCanvas.toDataURL("image/jpeg");
+
+        // Send image data to the server
+        fetch('/save-photo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ imageData })
+        })
+        .then(res => res.text())
+        .then(msg => {
+            console.log(msg);
+            alert('Photo saved to server!');
+        })
+        .catch(err => {
+            console.error('Upload error:', err);
+        });
+    };
+}
+
+
 function switchCamera() {
     facingMode = facingMode === "user" ? "environment" : "user";
     stopCamera();
