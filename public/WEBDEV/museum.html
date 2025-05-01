@@ -271,6 +271,7 @@
             <div class="victory-content">
                 <div class="victory-layer">
                     <img src="assets/victory-frame.png" class="victory-frame">
+                    <img id="victory-full-image" class="victory-full" src="" alt="Full Image">
                 </div>
             </div>
         </div>
@@ -588,7 +589,7 @@
         });
             
 
-        // Fragment Collection System with Victory Screen
+          // Fragment Collection System with Victory Screen
         document.addEventListener("DOMContentLoaded", function () {
             const fragmentDisplay = document.querySelector('.fragment-display');
             let fragmentsCollected = 0;
@@ -714,14 +715,18 @@
                         imgElement.alt = `Puzzle Piece ${i + 1}`; // Fix accessibility warning
                     }
                 }
+
+                const fullImage = document.getElementById('victory-full-image');
+                if (fullImage) {
+                    fullImage.src = '/Images/' + recent_file;
+                    fullImage.alt = "Full Puzzle Image";
+                }
             };
 
             image.onerror = function () {
                 console.error("Failed to load source image:", imagePath);
         };
     }
-
-  
     </script>
 </body>
 

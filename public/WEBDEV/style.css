@@ -1056,3 +1056,12 @@ section {
     opacity: 1;
     transform: scale(1.1);
 }
+
+#victory-full-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    height:76%;
+    padding-top:120px;
+}
