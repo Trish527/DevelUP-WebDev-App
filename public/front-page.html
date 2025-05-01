@@ -159,7 +159,7 @@
             const isPortrait = video.videoHeight > video.videoWidth;
             overlayImg.src = isPortrait
                 ? "border-portrait.png"
-                : "assets//border-landscape.png";
+                : "assets/border-landscape.png";
         }
 
         async function initCamera() {
@@ -305,7 +305,7 @@
             borderImage.crossOrigin = "anonymous"; 
             borderImage.src = isPortrait
                 ? "border-portrait.png"
-                : "border-landscape.png";
+                : "assets/border-landscape.png";
             borderImage.onload = function () {
                 compositeCtx.drawImage(
                     borderImage,
