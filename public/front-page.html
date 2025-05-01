@@ -328,7 +328,14 @@
                     body: JSON.stringify({ imageData })
                 }).then(response => {
                     if (response.ok) {
-                        alert("Photo saved!");
+                        var answer = confirm("Photo saved! Continue?");
+                        if (answer){
+                            alert("Bye bye!");
+                            window.location.href = 'http://localhost:3000/WEBDEV/museum.html';
+                        }
+                        else{
+                            alert("Thanks for sticking around!");
+                        }
                     } else {
                         alert("Failed to save photo.");
                     }
