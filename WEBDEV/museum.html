@@ -568,33 +568,101 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
         </script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Get all puzzle elements (puzzle1 to puzzle6)
-                const puzzles = [
-                    document.getElementById('puzzle-1'),  // Portrait Room
-                    document.querySelector('.puzzle2'),   // Theater Room (FA-4)
-                    document.querySelector('.puzzle3'),   // Theater Room (FA-3)
-                    document.querySelector('.puzzle4'),   // Sculpture Room
-                    document.querySelector('.puzzle5'),   // Souvenir Shop (FA-5)
-                    document.querySelector('.puzzle6')     // Souvenir Shop (FA-6)
-                ];
+        <!-- Add this right before the closing </body> tag -->
+<script>
+    // Fragment Collection System with Victory Screen
+    document.addEventListener("DOMContentLoaded", function() {
+        const fragmentDisplay = document.querySelector('.fragment-display');
+        let fragmentsCollected = 0;
         
-                // Loop through each puzzle and add click event
-                puzzles.forEach(puzzle => {
-                    if (puzzle) {
-                        puzzle.addEventListener('click', function() {
-                            // Fade out the puzzle
-                            this.style.opacity = '0';
+        // Create empty slots for all fragments
+        for (let i = 0; i < 6; i++) {
+            const fragmentSlot = document.createElement('img');
+            fragmentSlot.src = 'puzzle-placeholder.png';
+            fragmentSlot.alt = 'Fragment';
+            fragmentSlot.dataset.index = i;
+            fragmentDisplay.appendChild(fragmentSlot);
+        }
+        
+        // Get all puzzle elements
+        const puzzles = [
+            document.getElementById('puzzle-1'),  // Portrait Room
+            document.getElementById('puzzle-2'),  // Theater Room (FA-4)
+            document.getElementById('puzzle-3'),  // Theater Room (FA-3)
+            document.getElementById('puzzle-4'),  // Sculpture Room
+            document.getElementById('puzzle-5'),  // Souvenir Shop (FA-5)
+            document.getElementById('puzzle-6')   // Souvenir Shop (FA-6)
+        ];
+        
+        // Track collected puzzles
+        const collectedPuzzles = Array(puzzles.length).fill(false);
+    
+        // Handle puzzle clicks
+        puzzles.forEach((puzzle, index) => {
+            if (puzzle) {
+                puzzle.addEventListener('click', function() {
+                    if (!collectedPuzzles[index]) {
+                        // Mark as collected
+                        collectedPuzzles[index] = true;
+                        fragmentsCollected++;
+                        
+                        // Update display
+                        const fragmentSlots = document.querySelectorAll('.fragment-display img');
+                        fragmentSlots[fragmentsCollected - 1].classList.add('collected');
+                        
+                        // Visual feedback
+                        this.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            this.style.transform = 'scale(1)';
+                        }, 300);
+                        
+                        // Fade out puzzle
+                        this.style.opacity = '0';
+                        setTimeout(() => {
+                            this.style.display = 'none';
+                        }, 1000);
+                        
+                        // Check for victory
+                        if (fragmentsCollected === 6) {
+                            // Celebration animation
+                            fragmentSlots.forEach(slot => {
+                                slot.style.animation = 'celebrate 0.5s ease-in-out 3';
+                            });
                             
-                            // Remove from DOM after fade completes (optional)
+                            // Show victory screen after a delay
                             setTimeout(() => {
-                                this.style.display = 'none';
-                            }, 1000); // Matches the CSS transition duration
-                        });
+                                const sections = [
+                                    'portrait-section', 
+                                    'sculpture-section', 
+                                    'theater-section', 
+                                    'souvenir-section', 
+                                    'lobby-section'
+                                ];
+                                
+                                const victory = document.getElementById('victory-section');
+                                
+                                // Hide all current sections
+                                sections.forEach(id => {
+                                    const section = document.getElementById(id);
+                                    if (section && section.classList.contains('visible')) {
+                                        section.classList.remove('visible');
+                                        section.classList.add('hidden');
+                                    }
+                                });
+                                
+                                // Show victory screen
+                                setTimeout(() => {
+                                    victory.classList.remove('hidden');
+                                    victory.classList.add('visible');
+                                }, 1000);
+                                
+                            }, 2000); // Wait for celebration animation to complete
+                        }
                     }
                 });
-            });
-        </script>
+            }
+        });
+    });
+    </script>
 </body>
 </html>
