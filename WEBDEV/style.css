@@ -73,7 +73,7 @@ section {
 }
 
 .entrance-container {
-    background-image: url("entrance-bg.png");
+    background-image: url("assets/entrance-bg.png");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -195,7 +195,7 @@ section {
 }
 
 .lobby-container {
-    background-image: url("LobbyBG.png");
+    background-image: url("assets/LobbyBG.png");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -257,7 +257,7 @@ section {
 }
 
 .portrait-container {
-    background-image: url("PortraitBG.png");
+    background-image: url("assets/PortraitBG.png");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -436,7 +436,7 @@ section {
 }
 
 .sculpture-container {
-    background-image: url("SculptureBG.png");
+    background-image: url("assets/SculptureBG.png");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -575,7 +575,7 @@ section {
 }
 
 .theater-container {
-    background-image: url("TheaterBG.png");
+    background-image: url("assets/TheaterBG.png");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -766,7 +766,7 @@ section {
 }
 
 .souvenir-container {
-    background-image: url("SouvenirBG.png");
+    background-image: url("assets/SouvenirBG.png");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -967,7 +967,7 @@ section {
 }
 
 .victory-container {
-    background-image: url("victoryBG.png");
+    background-image: url("assets/victoryBG.png");
     background-size: cover;
     background-position: center;
     width: 100%;
