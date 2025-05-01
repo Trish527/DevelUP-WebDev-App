@@ -68,7 +68,7 @@ app.get('/recent-file', (req, res) => {
 
 // Route: Serve main test page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'test.html'));
+    res.sendFile(path.join(__dirname, 'public', 'file-test.html'));
 });
 
 // Start server

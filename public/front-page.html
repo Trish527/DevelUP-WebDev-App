@@ -21,7 +21,7 @@
 
 <body>
     <audio id="bgMusic" loop>
-        <source src="bgm1.mp3" type="audio/mpeg" />
+        <source src="assets//bgm1.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
     </audio>
 
@@ -159,7 +159,7 @@
             const isPortrait = video.videoHeight > video.videoWidth;
             overlayImg.src = isPortrait
                 ? "border-portrait.png"
-                : "border-landscape.png";
+                : "assets//border-landscape.png";
         }
 
         async function initCamera() {
