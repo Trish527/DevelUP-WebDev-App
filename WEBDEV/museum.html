@@ -42,6 +42,13 @@
         <i class="fas fa-volume-up"></i>
     </button>
 
+    <!-- Replace the fragment counter div with this -->
+    <div class="fragment-counter">
+        <div class="fragment-display">
+            <!-- Empty slots will be filled with puzzle images as fragments are collected -->
+        </div>
+    </div>
+
     <!-- ENTRANCE -->
     <section class="entrance visible" id = "entrance-section">
         <div class="entrance-container">
@@ -260,7 +267,7 @@
         <div class="victory-container">
             <div class="victory-content">
                 <div class="victory-layer">
-                    
+                    <img src= "victory-frame.png" class= "victory-frame">
                 </div>
             </div>
         </div>
@@ -336,6 +343,99 @@
                 souvenir.classList.add('visible');
             }, 1000);
         });
+
+        let puzzle1Clicked = false;
+        let puzzle2Clicked = false;
+        let puzzle3Clicked = false;
+        let puzzle4Clicked = false;
+        let puzzle5Clicked = false;
+        let puzzle6Clicked = false;
+        const puzzle1 = document.getElementById('puzzle-1');
+        const puzzle2 = document.getElementById('puzzle-2');
+        const puzzle3 = document.getElementById('puzzle-3');
+        const puzzle4 = document.getElementById('puzzle-4');
+        const puzzle5 = document.getElementById('puzzle-5');
+        const puzzle6 = document.getElementById('puzzle-6');
+
+        if (puzzle1 && puzzle2 && puzzle3 && puzzle4 && puzzle5 && puzzle6) {
+            puzzle1.addEventListener('click', function () {
+                if (!puzzle1Clicked) {
+                    console.log('Puzzle 1 clicked');
+                    puzzle1Clicked = true;
+                    puzzle1.style.pointerEvents = "none";
+                    checkSouvenirPuzzlesClicked();
+                }
+            });
+
+            puzzle2.addEventListener('click', function () {
+                if (!puzzle2Clicked) {
+                    console.log('Puzzle 2 clicked');
+                    puzzle2Clicked = true;
+                    puzzle2.style.pointerEvents = "none";
+                    checkSouvenirPuzzlesClicked();
+                }
+            });
+            
+            
+            puzzle3.addEventListener('click', function () {
+                if (!puzzle3Clicked) {
+                    console.log('Puzzle 3 clicked');
+                    puzzle3Clicked = true;
+                    puzzle3.style.pointerEvents = "none";
+                    checkSouvenirPuzzlesClicked();
+                }
+            });
+
+            puzzle4.addEventListener('click', function () {
+                if (!puzzle4Clicked) {
+                    console.log('Puzzle 4 clicked');
+                    puzzle4Clicked = true;
+                    puzzle4.style.pointerEvents = "none";
+                    checkSouvenirPuzzlesClicked();
+                }
+            });
+
+            puzzle5.addEventListener('click', function () {
+                if (!puzzle5Clicked) {
+                    console.log('Puzzle 5 clicked');
+                    puzzle5Clicked = true;
+                    puzzle5.style.pointerEvents = "none";
+                    checkSouvenirPuzzlesClicked();
+                }
+            });
+            
+            puzzle6.addEventListener('click', function () {
+                if (!puzzle6Clicked) {
+                    console.log('Puzzle 6 clicked');
+                    puzzle6Clicked = true;
+                    puzzle6.style.pointerEvents = "none";
+                    checkSouvenirPuzzlesClicked();
+                }
+            });
+        }
+
+        function checkSouvenirPuzzlesClicked() {
+        if (puzzle1Clicked && puzzle2Clicked && puzzle3Clicked && puzzle4Clicked && puzzle5Clicked && puzzle6Clicked) {
+            const sections = ['portrait-section', 'sculpture-section', 'theater-section', 'souvenir-section', 'lobby-section'];
+            const victory = document.getElementById('victory-section');
+
+            for (let id of sections) {
+                const section = document.getElementById(id);
+                if (section && section.classList.contains('visible')) {
+                    section.classList.remove('visible');
+                    section.classList.add('hidden');
+                    setTimeout(() => {
+                        victory.classList.remove('hidden');
+                        victory.classList.add('visible');
+                    }, 1000);
+                    return;
+                }
+            }
+
+            console.error('No active section found to transition from!');
+        }
+    }
+
     </script>
 
     <script>

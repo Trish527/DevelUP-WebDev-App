@@ -986,6 +986,18 @@ section {
     height: 100%;
 }
 
+.victory-frame
+{
+    object-fit: cover;
+    position: absolute;
+}
+
+.victory-frame{
+    top:-2%;
+    z-index: 1;
+    left: 20%; 
+}
+
 /* Map Button */
 .map-button {
     position: fixed;
@@ -1010,4 +1022,37 @@ section {
 .map-button:hover {
     transform: scale(1.1);
     background: rgba(255, 255, 255, 0.9);
+}
+
+/* Fragment Counter */
+.fragment-counter {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(233, 228, 213, 0.7);
+    border: 1.5px solid #bfa77a;
+    border-radius: 20px;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(80, 60, 30, 0.10);
+    display: flex;
+    align-items: center;
+}
+
+.fragment-display {
+    display: flex;
+    gap: 5px;
+}
+
+.fragment-display img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    opacity: 0.3; /* Default state for uncollected fragments */
+    transition: all 0.3s ease;
+}
+
+.fragment-display img.collected {
+    opacity: 1;
+    transform: scale(1.1);
 }
