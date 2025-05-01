@@ -74,9 +74,10 @@
         <div class="lobby-container">
             <div class="lobby-content">
                 <div class="lobby-layer">
-
-                    
-
+                    <img src="portrait-room.png" alt="placeholder" class="portrait-room" id="portrait-room">
+                    <img src="souvenir-room.png" alt="placeholder" class="souvenir-room" id="souvenir-room">
+                    <img src="sculpture-room.png" alt="placeholder" class="sculpture-room" id="sculpture-room">
+                    <img src="theater-room.png" alt="placeholder" class="theater-room" id="theater-room">
                 </div>
             </div>
         </div>
@@ -254,22 +255,75 @@
     </section>
 
     <script>
-    // Entrance to Lobby
-    document.getElementById('hallway-img').addEventListener('click', function () {
-        const entrance = document.getElementById('entrance-section');
-        const lobby = document.getElementById('lobby-section');
+        // Entrance to Lobby
+        document.getElementById('hallway-img').addEventListener('click', function () {
+            const entrance = document.getElementById('entrance-section');
+            const lobby = document.getElementById('lobby-section');
+        
+            entrance.classList.remove('visible');
+            entrance.classList.add('hidden');
+        
+            setTimeout(() => {
+                lobby.classList.remove('hidden');
+                lobby.classList.add('visible');
+            }, 1000);
+        });
     
-        entrance.classList.remove('visible');
-        entrance.classList.add('hidden');
-    
-        setTimeout(() => {
-            lobby.classList.remove('hidden');
-            lobby.classList.add('visible');
-        }, 1000);
-    });
-    
-    
+        // Lobby to Portrait 
+        document.getElementById('portrait-room').addEventListener('click', function () {
+            const lobby = document.getElementById('lobby-section');
+            const portrait = document.getElementById('portrait-section');
+        
+            lobby.classList.remove('visible');
+            lobby.classList.add('hidden');
+        
+            setTimeout(() => {
+                portrait.classList.remove('hidden');
+                portrait.classList.add('visible');
+            }, 1000);
+        });
 
+        // Lobby to Sculpture 
+        document.getElementById('sculpture-room').addEventListener('click', function () {
+            const lobby = document.getElementById('lobby-section');
+            const sculpture = document.getElementById('sculpture-section');
+        
+            lobby.classList.remove('visible');
+            lobby.classList.add('hidden');
+        
+            setTimeout(() => {
+                sculpture.classList.remove('hidden');
+                sculpture.classList.add('visible');
+            }, 1000);
+        });
+
+        // Lobby to Theater 
+        document.getElementById('theater-room').addEventListener('click', function () {
+            const lobby = document.getElementById('lobby-section');
+            const theater = document.getElementById('theater-section');
+            
+            lobby.classList.remove('visible');
+            lobby.classList.add('hidden');
+        
+            setTimeout(() => {
+                theater.classList.remove('hidden');
+                theater.classList.add('visible');
+            }, 1000);
+        });
+
+        // Lobby to Souvenir 
+        document.getElementById('souvenir-room').addEventListener('click', function () {
+            const lobby = document.getElementById('lobby-section');
+            const souvenir = document.getElementById('souvenir-section');
+            
+            lobby.classList.remove('visible');
+            lobby.classList.add('hidden');
+        
+            setTimeout(() => {
+                souvenir.classList.remove('hidden');
+                souvenir.classList.add('visible');
+            }, 1000);
+        });
     </script>
 
     <script>

@@ -184,6 +184,10 @@ section {
     cursor: pointer;
 }
 
+.portrait-room, .souvenir-room, .sculpture-room, .theater-room{
+    cursor: pointer;
+}
+
 /* LOBBY */
 .lobby{
 
@@ -209,7 +213,42 @@ section {
     height: 100%;
 }
 
+.portrait-room, .souvenir-room, .sculpture-room, .theater-room{
+    object-fit: cover;
+    position: absolute;
+}
 
+.portrait-room {
+    width: 8vw;
+    height: 9vw;
+    left: 22.5%;
+    top: 19%;
+    z-index: 1;
+}
+
+.souvenir-room{
+    width: 9vw;
+    height: 8vw;
+    left: 21.8%;
+    bottom: 19%;
+    z-index: 1;
+}
+
+.sculpture-room{
+    width: 20vw;
+    height: 6vw;
+    left: 40.5%;
+    top: 19%;
+    z-index: 1;
+}
+
+.theater-room{
+    width: 10vw;
+    height: 12vw;
+    right: 20%;
+    top: 35%;
+    z-index: 1;
+}
 
 /* PORTRAIT ROOM */
 .portrait{
