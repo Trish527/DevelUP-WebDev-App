@@ -1,6 +1,13 @@
 # From the Vault: DevelUP Web Dev Challenge
 A web development-based project that aims to challenge students' web development skills and abilities in collaboration with the PLM-Computer Science Society: DevelUP 2025 App Development Exhibit. 
 
+## Development Tools
+1. HTML
+2. Bootstrap CSS
+3. JavaScript
+4. Node.js
+5. Express.js
+
 ## Requirements
 1. You must have [Node.js](https://nodejs.org/en) installed. If none, kindly follow the tutorial on how to install [here](https://www.youtube.com/watch?v=kC56yUZCKu4).
 2. After installing [Node.js](https://nodejs.org/en), [Express.js](https://expressjs.com/) should be installed on the file directory. 
