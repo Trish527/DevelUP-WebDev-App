@@ -38,7 +38,7 @@ node server.js
 
 2. After capturing your picture, a dialog box will appear. If you wish to proceed to the puzzle room, click continue.
    (Else if you wish to retake your picture, you are free to click cancel)
-![image](https://github.com/user-attachments/assets/79091232-3626-45f0-b481-3978e8af0a0b)
+<br>![image](https://github.com/user-attachments/assets/79091232-3626-45f0-b481-3978e8af0a0b)
 ![image](https://github.com/user-attachments/assets/6231c303-116c-4a86-9b2e-459d1dc10aff)
 
 3. Hover your mouse and click the door to go to the puzzle area.
@@ -56,7 +56,7 @@ node server.js
 
 7. After finding the puzzle piece, you may click it and proceed to the next puzzle area.
    The progress bar will be updated once you find a puzzle piece.
-   ![image](https://github.com/user-attachments/assets/ab10f874-9a33-48b6-9f23-ca43555fb9a1)
+   <br>![image](https://github.com/user-attachments/assets/ab10f874-9a33-48b6-9f23-ca43555fb9a1)
    ![image](https://github.com/user-attachments/assets/84902e4c-e09b-4cbc-b7ae-ff7dab249faa)
 
 8. Have fun and find all the missing puzzle pieces.
