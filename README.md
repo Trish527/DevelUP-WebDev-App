@@ -82,9 +82,8 @@ node server.js
 
 ## Contributors
 * **Project Manager**: [Lau, Trisha Mae R.](https://github.com/Trish527)
-* **Front-End Developers**: [Rivera, Ramyll C.](https://github.com/LlyXX6104) & [Martin, Angelo Ken D.](https://github.com/SachiAi)
-* **Back-End Developers**: [Capistrano, Jed Anthony S.](https://github.com/EdieBle)
-
+* **Front-End Developers**: [Lau, Trisha Mae R.](https://github.com/Trish527), [Rivera, Ramyll C.](https://github.com/LlyXX6104), [Martin, Angelo Ken D.](https://github.com/SachiAi)
+* **Back-End Developers**: [Capistrano, Jed Anthony S.](https://github.com/EdieBle) & [Lau, Trisha Mae R.](https://github.com/Trish527)
 
 ## Acknowledgements and Awards
 This was made possible thanks to my solid groupmates, who made an amazing effort and dedication to this project:
