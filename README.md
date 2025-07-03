@@ -78,7 +78,7 @@ node server.js
    Clue #1: Somewhere in the stage and seats.
    Clue #2: Adjust it.
 
-**Total**:_** 6 Puzzle Pieces**___
+**Total**: **_6 Puzzle Pieces_**
 
 ## Contributors
 * **Project Manager**: [Lau, Trisha Mae R.](https://github.com/Trish527)
